@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.PersonDao">
+
+    <resultMap id="PersonRM" type="Person" autoMapping="true">
+        <association property="category" column="category_id" javaType="Category">
+            <id property="id" column="categoryId"/>
+            <id property="name" column="categoryName"/>
+        </association>
+    </resultMap>
+
+    <select id="selectPerson" resultMap="PersonRM">
+        SELECT
+        P.id id,
+        P.name name,
+        mobile,
+        telphone,
+        email,
+        city,
+        birthday,
+        category_id categoryId,
+        C.name categoryName
+        FROM t_person P LEFT JOIN t_category C
+        ON P.category_id = C.id
+        <where>
+            <if test="id!=null">P.id = #{id}</if>
+        </where>
+    </select>
+
+    <insert id="insertPerson">
+        <selectKey resultType="Integer" order="AFTER" keyProperty="id">
+            SELECT last_insert_id() id FROM dual
+        </selectKey>
+        INSERT INTO t_person (name, mobile, telphone, email, city, birthday, category_id)
+        VALUES (#{name}, #{mobile}, #{telphone}, #{email}, #{city}, #{birthday}, #{category.id})
+    </insert>
+
+    <update id="updatePerson">
+        UPDATE t_person
+        <set>
+            <if test="name!=null">name=#{name},</if>
+            <if test="mobile!=null">mobile=#{mobile},</if>
+            <if test="telphone!=null">telphone=#{telphone},</if>
+            <if test="email!=null">email=#{email},</if>
+            <if test="city!=null">city=#{city},</if>
+            <if test="birthday!=null">birthday=#{birthday},</if>
+            <if test="category!=null">
+                <if test="category.id!=null">category_id=#{category.id}</if>
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deletePerson">
+        DELETE FROM t_person
+        <where>id = #{id}</where>
+    </delete>
+</mapper>
