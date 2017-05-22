@@ -1,5 +1,6 @@
 package com.baizhi.dao;
 
+import com.baizhi.entity.Category;
 import com.baizhi.entity.Person;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface PersonDao {
     public int deletePerson(Person person);
 
     public int updatePerson(Person person);
+
+    public List<Category> selectCate();
 }

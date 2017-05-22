@@ -26,6 +26,12 @@
             <if test="id!=null">P.id = #{id}</if>
         </where>
     </select>
+    <select id="selectCate" resultType="Category">
+        SELECT
+            id,
+            name
+        FROM t_category
+    </select>
 
     <insert id="insertPerson">
         <selectKey resultType="Integer" order="AFTER" keyProperty="id">

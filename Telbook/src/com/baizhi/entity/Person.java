@@ -1,5 +1,7 @@
 package com.baizhi.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -12,6 +14,7 @@ public class Person {
     private String telphone;
     private String email;
     private String city;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     private Category category;
 

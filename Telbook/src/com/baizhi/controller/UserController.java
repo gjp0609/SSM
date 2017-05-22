@@ -1,10 +1,12 @@
 package com.baizhi.controller;
 
+import com.baizhi.entity.User;
 import com.baizhi.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by gjp06 on 17.5.21.
@@ -16,9 +18,11 @@ public class UserController {
     private UserService service;
 
     @RequestMapping("login")
-    public String login() {
-         
-        return "";
+    public String login(User user, HttpSession session) {
+        if (user == null) throw new RuntimeException("user null");
+        User login = service.login(user);
+        session.setAttribute("user", user);
+        return "redirect:/person/queryAll.do";
     }
 
 }

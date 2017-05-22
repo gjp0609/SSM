@@ -1,6 +1,7 @@
 package com.baizhi.service.impl;
 
 import com.baizhi.dao.PersonDao;
+import com.baizhi.entity.Category;
 import com.baizhi.entity.Person;
 import com.baizhi.service.PersonService;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import java.util.List;
 @Service("personService")
 @Transactional
 public class PersonServiceImpl implements PersonService {
+
 
     @Resource(name = "personDao")
     private PersonDao dao;
@@ -47,5 +49,10 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public int removePerson(Person person) {
         return dao.deletePerson(person);
+    }
+
+    @Override
+    public List<Category> queryCate() {
+        return dao.selectCate();
     }
 }

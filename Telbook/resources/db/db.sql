@@ -6,6 +6,7 @@ CREATE TABLE t_user (
   realname VARCHAR(30)
 );
 INSERT INTO t_user (name, password, realname) VALUE ('李嘉图', '123123', '路明非');
+INSERT INTO t_user (name, password, realname) VALUE ('me', '123123', 'gjp');
 # DELETE FROM t_user;
 
 # 分类表

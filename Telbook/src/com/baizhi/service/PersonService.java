@@ -1,5 +1,6 @@
 package com.baizhi.service;
 
+import com.baizhi.entity.Category;
 import com.baizhi.entity.Person;
 
 import java.util.List;
@@ -18,5 +19,7 @@ public interface PersonService {
     public int addPerson(Person person);
 
     public int removePerson(Person person);
+
+    public List<Category> queryCate();
 
 }
