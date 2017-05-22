@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="FileUpdateAndDownload:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/FileUpdateAndDownload_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="FileUpdateAndDownload/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="FileUpdateAndDownload" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="application" name="Lib" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

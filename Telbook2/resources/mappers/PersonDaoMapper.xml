@@ -26,7 +26,7 @@
             <if test="id!=null">P.id = #{id}</if>
         </where>
     </select>
-    <select id="selectCate" resultType="com.baizhi.entity.Category">
+    <select id="selectCate" resultType="Category">
         SELECT
             id,
             name
