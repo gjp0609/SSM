@@ -9,18 +9,18 @@ class User {
     private var name: String? = null
     private var password: String? = null
     private var realname: String? = null
+    private var imgPath: String? = null
 
-    override fun toString(): String {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", realname='" + realname + '\'' +
-                '}'
+    fun setImgPath(imgPath: String?) {
+        this.imgPath = imgPath
     }
 
     fun getId(): Int? {
         return id
+    }
+
+    fun getImgPath(): String? {
+        return imgPath
     }
 
     fun setId(id: Int?) {
@@ -49,6 +49,10 @@ class User {
 
     fun setRealname(realname: String) {
         this.realname = realname
+    }
+
+    override fun toString(): String {
+        return "User(id=$id, name=$name, password=$password, realname=$realname, imgPath=$imgPath)"
     }
 
 

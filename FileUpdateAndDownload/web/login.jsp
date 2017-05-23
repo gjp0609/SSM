@@ -58,7 +58,7 @@
     frm.submit(function () {
         $.post("${pageContext.request.contextPath}/user/login.me", frm.serialize(),
             function (result) {
-                if (result === "") location.href = "${pageContext.request.contextPath}/user/login.me";
+                if (result === "") location.href = "${pageContext.request.contextPath}/index.jsp";
                 else msg.html(result);
             }, "text");
         return false;
